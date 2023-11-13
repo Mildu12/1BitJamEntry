@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://ccanir3mgho5w"]
+
+[ext_resource type="Script" path="res://scripts/Label.gd" id="1_un4ib"]
+[ext_resource type="Texture2D" uid="uid://cebvyrjdqlj5x" path="res://resources/Black.png" id="2_g3etn"]
+
+[sub_resource type="Theme" id="Theme_wu1le"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ymrrk"]
+font_size = 24
+outline_size = 1
+outline_color = Color(0, 0, 0, 1)
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="Label" type="Label" parent="."]
+offset_left = 24.0
+offset_top = 18.0
+offset_right = 198.0
+offset_bottom = 55.0
+theme = SubResource("Theme_wu1le")
+text = "PHASES LEFT: 8"
+label_settings = SubResource("LabelSettings_ymrrk")
+script = ExtResource("1_un4ib")
+
+[node name="Sprite2D" type="Sprite2D" parent="Label"]
+z_index = -1
+position = Vector2(87, 18)
+scale = Vector2(1.48, 0.3)
+texture = ExtResource("2_g3etn")

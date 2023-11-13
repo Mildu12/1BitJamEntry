@@ -1,0 +1,5 @@
+res://Scenes/room_test.tscn
+res://Scenes/levelGui.tscn
+res://scripts/Label.gd
+res://scripts/player.gd
+res://Scenes/player.tscn
