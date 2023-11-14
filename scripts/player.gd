@@ -6,51 +6,68 @@ var move = false
 var wallCheckers = []
 var phasable = []
 var phaseMode = false
+var inSwitcher = false
+var inMenu = false
 
 func _ready():
 	pass # Replace with function body.
 
 func _process(delta):
+	if Input.is_action_just_pressed("menu") and inMenu == false:
+		inMenu = true
+		add_child(load("res://Scenes/OverLay.tscn").instantiate())
+	elif Input.is_action_just_pressed("menu") and inMenu == true:
+		inMenu = false
+		$Overlay.queue_free()
+	if not inMenu:
+		if Input.is_action_just_pressed("respawn"):
+			respawn()
+		
+		dirs = []
+		move = false
+		if Input.is_action_pressed("right"):
+			dirs.append(90)
+			move = true
+		elif Input.is_action_pressed("left"):
+			dirs.append(270)
+			move = true
+		if Input.is_action_pressed("up"):
+			dirs.append(0)
+			move = true
+		elif Input.is_action_pressed("down"):
+			dirs.append(180)
+			move = true
+		
+		if move == true:
+			movement()
+		
+		wallCheckers = [$Checker1.is_colliding(),$Checker2.is_colliding(),$Checker3.is_colliding(),$Checker4.is_colliding()]
+		
+		
+		if Input.is_action_just_pressed("phase"):
+			print(wallCheckers)
+			if wallCheckers[0]:
+				if wallCheckers[1]:
+					if Input.is_action_pressed("right"):
+						phase(1)
+				elif wallCheckers[3]:
+					if Input.is_action_pressed("up"):
+						phase(0)
+			elif wallCheckers[2]:
+				if wallCheckers[1]:
+					if Input.is_action_pressed("down"):
+						phase(2)
+				elif wallCheckers[3]:
+					if Input.is_action_pressed("left"):
+						phase(3)
+		
+		if $Area2D.has_overlapping_bodies():
+			if inSwitcher == false:
+				inSwitcher = true
+				phase(false)
+		elif inSwitcher == true:
+			inSwitcher = false
 	
-	if Input.is_action_just_pressed("respawn"):
-		respawn()
-	
-	dirs = []
-	move = false
-	if Input.is_action_pressed("right"):
-		dirs.append(90)
-		move = true
-	elif Input.is_action_pressed("left"):
-		dirs.append(270)
-		move = true
-	if Input.is_action_pressed("up"):
-		dirs.append(0)
-		move = true
-	elif Input.is_action_pressed("down"):
-		dirs.append(180)
-		move = true
-	
-	if move == true:
-		movement()
-	
-	wallCheckers = [$Checker1.is_colliding(),$Checker2.is_colliding(),$Checker3.is_colliding(),$Checker4.is_colliding()]
-	
-	
-	if Input.is_action_just_pressed("phase"):
-		if wallCheckers[0]:
-			if wallCheckers[1]:
-				if Input.is_action_pressed("right"):
-					phase(1)
-			elif wallCheckers[3]:
-				if Input.is_action_pressed("up"):
-					phase(0)
-		elif wallCheckers[2]:
-			if wallCheckers[1]:
-				if Input.is_action_pressed("down"):
-					phase(2)
-			elif wallCheckers[3]:
-				if Input.is_action_pressed("left"):
-					phase(3)
 
 func average(array):
 	var average = 0
@@ -101,6 +118,10 @@ func phase(dir):
 
 	if scale < Vector2.ONE * 0.1:
 		respawn()
+	
+
+		
+	
 
 func respawn():
 	scale = Vector2.ONE

@@ -1,0 +1,75 @@
+[gd_scene load_steps=7 format=3 uid="uid://camwi26j0dwup"]
+
+[ext_resource type="Script" path="res://scripts/level_select.gd" id="1_84qru"]
+[ext_resource type="FontFile" uid="uid://cq40qnn7cta88" path="res://resources/Megrim-Regular.ttf" id="2_ipkum"]
+[ext_resource type="Theme" uid="uid://d38ywd31fk2yh" path="res://resources/ButtonTheme.tres" id="3_xgu3o"]
+[ext_resource type="Script" path="res://scripts/MainMenu.gd" id="4_enedg"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_15l4v"]
+font = ExtResource("2_ipkum")
+font_size = 150
+font_color = Color(0, 0, 0, 1)
+outline_size = 6
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_eycdk"]
+font = ExtResource("2_ipkum")
+font_size = 49
+font_color = Color(0, 0, 0, 1)
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+
+[node name="LevelSelect" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_84qru")
+
+[node name="CenterContainer2" type="CenterContainer" parent="."]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 255.0
+
+[node name="Label" type="Label" parent="CenterContainer2"]
+layout_mode = 2
+text = "LEVEL SELECT"
+label_settings = SubResource("LabelSettings_15l4v")
+
+[node name="CenterContainer3" type="CenterContainer" parent="."]
+layout_mode = 0
+offset_top = 169.0
+offset_right = 1152.0
+offset_bottom = 360.0
+
+[node name="Label" type="Label" parent="CenterContainer3"]
+layout_mode = 2
+text = "TUTORIAL LEVELS:"
+label_settings = SubResource("LabelSettings_eycdk")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 0
+offset_top = 288.0
+offset_right = 1152.0
+offset_bottom = 418.0
+
+[node name="GridContainer" type="GridContainer" parent="CenterContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 30
+theme_override_constants/v_separation = 30
+columns = 5
+
+[node name="MainMenu" type="Button" parent="."]
+layout_mode = 2
+offset_left = 446.0
+offset_top = 580.0
+offset_right = 706.0
+offset_bottom = 607.0
+theme = ExtResource("3_xgu3o")
+theme_override_font_sizes/font_size = 25
+text = "BACK TO MAIN MENU"
+script = ExtResource("4_enedg")
+
+[connection signal="button_down" from="MainMenu" to="MainMenu" method="_on_button_down"]

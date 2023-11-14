@@ -1,29 +1,30 @@
-[gd_scene load_steps=5 format=3 uid="uid://ccanir3mgho5w"]
+[gd_scene load_steps=4 format=3 uid="uid://ccanir3mgho5w"]
 
-[ext_resource type="Script" path="res://scripts/Label.gd" id="1_un4ib"]
-[ext_resource type="Texture2D" uid="uid://cebvyrjdqlj5x" path="res://resources/Black.png" id="2_g3etn"]
-
-[sub_resource type="Theme" id="Theme_wu1le"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_ymrrk"]
-font_size = 24
-outline_size = 1
-outline_color = Color(0, 0, 0, 1)
+[ext_resource type="Theme" uid="uid://d38ywd31fk2yh" path="res://resources/ButtonTheme.tres" id="1_807v2"]
+[ext_resource type="StyleBox" uid="uid://ddixm3iq0bkf4" path="res://resources/Button.tres" id="2_07hvu"]
+[ext_resource type="Script" path="res://Scripts/Label1.gd" id="2_hocm0"]
 
 [node name="CanvasLayer" type="CanvasLayer"]
 
-[node name="Label" type="Label" parent="."]
-offset_left = 24.0
-offset_top = 18.0
-offset_right = 198.0
-offset_bottom = 55.0
-theme = SubResource("Theme_wu1le")
+[node name="Button" type="Button" parent="."]
+offset_left = 8.0
+offset_top = 15.0
+offset_right = 202.0
+offset_bottom = 47.0
+theme = ExtResource("1_807v2")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = ExtResource("2_07hvu")
+theme_override_styles/hover = ExtResource("2_07hvu")
+theme_override_styles/pressed = ExtResource("2_07hvu")
+theme_override_styles/disabled = ExtResource("2_07hvu")
+theme_override_styles/focus = ExtResource("2_07hvu")
+button_mask = 0
 text = "PHASES LEFT: 8"
-label_settings = SubResource("LabelSettings_ymrrk")
-script = ExtResource("1_un4ib")
-
-[node name="Sprite2D" type="Sprite2D" parent="Label"]
-z_index = -1
-position = Vector2(87, 18)
-scale = Vector2(1.48, 0.3)
-texture = ExtResource("2_g3etn")
+script = ExtResource("2_hocm0")

@@ -1,0 +1,30 @@
+[gd_resource type="Theme" load_steps=4 format=3 uid="uid://d38ywd31fk2yh"]
+
+[ext_resource type="FontFile" uid="uid://cq40qnn7cta88" path="res://resources/Megrim-Regular.ttf" id="1_f7t0k"]
+[ext_resource type="StyleBox" uid="uid://ddixm3iq0bkf4" path="res://resources/Button.tres" id="2_pek7p"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3bgp0"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+expand_margin_top = 8.0
+expand_margin_bottom = 8.0
+
+[resource]
+default_font = ExtResource("1_f7t0k")
+Button/colors/font_hover_color = Color(0, 0, 0, 1)
+Button/colors/font_outline_color = Color(1, 1, 1, 1)
+Button/constants/outline_size = 2
+Button/font_sizes/font_size = 40
+Button/fonts/font = ExtResource("1_f7t0k")
+Button/styles/focus = ExtResource("2_pek7p")
+Button/styles/hover = SubResource("StyleBoxFlat_3bgp0")
+Button/styles/normal = ExtResource("2_pek7p")
+Button/styles/pressed = ExtResource("2_pek7p")

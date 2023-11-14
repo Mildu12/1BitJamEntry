@@ -1,5 +1,11 @@
-res://Scenes/room_test.tscn
+res://TutLevels/room_test.tscn
+res://resources/ButtonTheme.tres
 res://Scenes/levelGui.tscn
-res://scripts/Label.gd
-res://scripts/player.gd
 res://Scenes/player.tscn
+res://Scenes/main_menu.tscn
+res://Scenes/level_select.tscn
+res://main.tscn
+res://Scenes/OverLay.tscn
+res://scripts/MainMenu.gd
+res://scripts/Label.gd
+res://resources/Button.tres

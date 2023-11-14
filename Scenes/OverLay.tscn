@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://dt3ov5hky6tdt"]
+
+[ext_resource type="Theme" uid="uid://d38ywd31fk2yh" path="res://resources/ButtonTheme.tres" id="1_ajnhn"]
+[ext_resource type="Script" path="res://scripts/Button2.gd" id="2_haj1q"]
+[ext_resource type="Script" path="res://scripts/Button.gd" id="3_tcjta"]
+
+[node name="Overlay" type="CanvasLayer"]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+offset_left = 338.0
+offset_top = 205.0
+offset_right = 813.0
+offset_bottom = 443.0
+theme_override_constants/separation = 150
+
+[node name="Button2" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_ajnhn")
+text = "RETURN TO GAME"
+script = ExtResource("2_haj1q")
+
+[node name="Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_ajnhn")
+text = "BACK TO LEVEL SELECT"
+script = ExtResource("3_tcjta")
+
+[connection signal="button_down" from="VBoxContainer/Button2" to="VBoxContainer/Button2" method="_on_button_down"]
+[connection signal="button_down" from="VBoxContainer/Button" to="VBoxContainer/Button" method="_on_button_down"]

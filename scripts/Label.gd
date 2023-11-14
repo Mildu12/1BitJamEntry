@@ -8,4 +8,4 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	text = "PHASES LEFT	: " + str(abs(round(10 * get_parent().get_parent().get_child(0).scale[0] - 2)))
+	text = "PHAZES LEFT:" + str(round(get_parent().get_parent().get_child(0).scale[0] * 10 - 2))

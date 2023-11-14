@@ -1,0 +1,55 @@
+[gd_scene load_steps=6 format=3 uid="uid://dg04088c60nk4"]
+
+[ext_resource type="FontFile" uid="uid://cq40qnn7cta88" path="res://resources/Megrim-Regular.ttf" id="1_m7cdy"]
+[ext_resource type="Theme" uid="uid://d38ywd31fk2yh" path="res://resources/ButtonTheme.tres" id="2_g6lf6"]
+[ext_resource type="Script" path="res://scripts/LevelSelect.gd" id="3_bfsfe"]
+[ext_resource type="Script" path="res://scripts/quit.gd" id="4_5m7fa"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_yy6kf"]
+font = ExtResource("1_m7cdy")
+font_size = 150
+font_color = Color(0, 0, 0, 1)
+outline_size = 6
+outline_color = Color(0, 0, 0, 1)
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 255.0
+
+[node name="Label" type="Label" parent="CenterContainer"]
+layout_mode = 2
+text = "PHAZER"
+label_settings = SubResource("LabelSettings_yy6kf")
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+offset_left = 376.0
+offset_top = 359.0
+offset_right = 776.0
+offset_bottom = 404.0
+theme_override_constants/separation = 50
+
+[node name="LevelSelect" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_g6lf6")
+text = "LEVEL SELECT"
+script = ExtResource("3_bfsfe")
+
+[node name="Button2" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_g6lf6")
+text = "QUIT GAME"
+script = ExtResource("4_5m7fa")
+
+[connection signal="button_down" from="VBoxContainer/LevelSelect" to="VBoxContainer/LevelSelect" method="_on_button_down"]
+[connection signal="button_down" from="VBoxContainer/Button2" to="VBoxContainer/Button2" method="_on_button_down"]
