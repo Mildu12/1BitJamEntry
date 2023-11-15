@@ -1,0 +1,103 @@
+[gd_scene load_steps=11 format=3 uid="uid://d2u0hwfq54git"]
+
+[ext_resource type="PackedScene" uid="uid://cewh81xw3mkog" path="res://Scenes/player.tscn" id="1_fy30w"]
+[ext_resource type="Texture2D" uid="uid://cebvyrjdqlj5x" path="res://resources/Black.png" id="2_haeic"]
+[ext_resource type="TileSet" uid="uid://b1h0osh3i2kuf" path="res://resources/Constants.tres" id="3_qs0ep"]
+[ext_resource type="PackedScene" uid="uid://ccanir3mgho5w" path="res://Scenes/levelGui.tscn" id="9_dp2ak"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rplbc"]
+texture = ExtResource("2_haeic")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+
+[sub_resource type="TileSet" id="TileSet_br403"]
+tile_size = Vector2i(128, 128)
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_rplbc")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r702h"]
+texture = ExtResource("2_haeic")
+texture_region_size = Vector2i(128, 128)
+use_texture_padding = false
+0:0/next_alternative_id = 2
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+0:0/1 = 1
+0:0/1/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/1/physics_layer_0/angular_velocity = 0.0
+0:0/1/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_gxe6t"]
+load_path = "res://.godot/imported/Borders.png-9af83f06b83b547e368824d3d6b329c7.ctex"
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_uk0vb"]
+texture = SubResource("CompressedTexture2D_gxe6t")
+texture_region_size = Vector2i(128, 128)
+0:0/next_alternative_id = 3
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+0:0/1 = 1
+0:0/1/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/1/physics_layer_0/angular_velocity = 0.0
+0:0/1/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+0:1/next_alternative_id = 4
+0:1/0 = 0
+0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:1/0/physics_layer_0/angular_velocity = 0.0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+0:1/1 = 1
+0:1/1/flip_v = true
+0:1/1/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:1/1/physics_layer_0/angular_velocity = 0.0
+0:1/1/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+0:1/2 = 2
+0:1/2/flip_h = true
+0:1/2/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:1/2/physics_layer_0/angular_velocity = 0.0
+0:1/2/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+0:1/3 = 3
+0:1/3/flip_h = true
+0:1/3/flip_v = true
+0:1/3/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:1/3/physics_layer_0/angular_velocity = 0.0
+0:1/3/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+
+[sub_resource type="TileSet" id="TileSet_uxx4v"]
+tile_size = Vector2i(128, 128)
+physics_layer_0/collision_layer = 2
+physics_layer_0/collision_mask = 2
+sources/0 = SubResource("TileSetAtlasSource_r702h")
+sources/1 = SubResource("TileSetAtlasSource_uk0vb")
+
+[node name="RoomTest" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_fy30w")]
+motion_mode = 0
+floor_block_on_wall = false
+platform_on_leave = 2
+safe_margin = 0.001
+
+[node name="TileMap1" type="TileMap" parent="."]
+z_index = -1
+tile_set = SubResource("TileSet_br403")
+cell_quadrant_size = 128
+format = 2
+
+[node name="TileMap2" type="TileMap" parent="."]
+z_index = -1
+tile_set = SubResource("TileSet_uxx4v")
+cell_quadrant_size = 128
+format = 2
+
+[node name="Constants" type="TileMap" parent="."]
+tile_set = ExtResource("3_qs0ep")
+format = 2
+
+[node name="CanvasLayer" parent="." instance=ExtResource("9_dp2ak")]

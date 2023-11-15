@@ -45,7 +45,6 @@ func _process(delta):
 		
 		
 		if Input.is_action_just_pressed("phase"):
-			print(wallCheckers)
 			if wallCheckers[0]:
 				if wallCheckers[1]:
 					if Input.is_action_pressed("right"):
@@ -67,6 +66,12 @@ func _process(delta):
 				phase(false)
 		elif inSwitcher == true:
 			inSwitcher = false
+		if $Area2D2.has_overlapping_bodies():
+			add_child(load("res://Scenes/OverLayDone.tscn").instantiate())
+			inMenu = true
+			if get_parent().get_parent().currentLevel > get_parent().get_parent().maxLevel:
+				get_parent().get_parent().maxLevel += 1
+				
 	
 
 func average(array):

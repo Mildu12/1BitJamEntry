@@ -9,3 +9,13 @@ res://Scenes/OverLay.tscn
 res://scripts/MainMenu.gd
 res://scripts/Label.gd
 res://resources/Button.tres
+res://TutLevels/Level1.tscn
+res://scripts/player.gd
+res://Scripts/OverlayDone.gd
+res://scripts/level_select.gd
+res://main.gd
+res://Scenes/OverLayDone.tscn
+res://Levels/Level2.tscn
+res://Levels/Level1.tscn
+res://scripts/Button.gd
+res://GameIdea.txt
