@@ -1,8 +1,8 @@
 extends Node2D
 
 var currentLevel = 0
-var levelCount = 2
-var maxLevel = 0
+var levelCount = 8
+var maxLevel = 10
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.

@@ -18,7 +18,8 @@ func _ready():
 		if file == "":
 			break
 		else:
-			levels.append(load("res://Levels/" + file))
+			levels.append(load("res://Levels/Level" + str(j) + ".tscn"))
+
 	
 	for i in range(len(levels)):
 		button = Button.new()

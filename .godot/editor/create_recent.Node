@@ -1,4 +1,7 @@
 Button
+AudioStreamPlayer
+Timer
+Node2D
 Label
 VBoxContainer
 CenterContainer

@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://d2u0hwfq54git"]
+[gd_scene load_steps=13 format=3 uid="uid://d2u0hwfq54git"]
 
 [ext_resource type="PackedScene" uid="uid://cewh81xw3mkog" path="res://Scenes/player.tscn" id="1_fy30w"]
 [ext_resource type="Texture2D" uid="uid://cebvyrjdqlj5x" path="res://resources/Black.png" id="2_haeic"]
 [ext_resource type="TileSet" uid="uid://b1h0osh3i2kuf" path="res://resources/Constants.tres" id="3_qs0ep"]
+[ext_resource type="FontFile" uid="uid://cq40qnn7cta88" path="res://resources/Megrim-Regular.ttf" id="5_lxt2v"]
 [ext_resource type="PackedScene" uid="uid://ccanir3mgho5w" path="res://Scenes/levelGui.tscn" id="9_dp2ak"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rplbc"]
@@ -76,6 +77,13 @@ physics_layer_0/collision_mask = 2
 sources/0 = SubResource("TileSetAtlasSource_r702h")
 sources/1 = SubResource("TileSetAtlasSource_uk0vb")
 
+[sub_resource type="LabelSettings" id="LabelSettings_sejck"]
+font = ExtResource("5_lxt2v")
+font_size = 59
+font_color = Color(0, 0, 0, 1)
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
 [node name="RoomTest" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_fy30w")]
@@ -85,19 +93,33 @@ platform_on_leave = 2
 safe_margin = 0.001
 
 [node name="TileMap1" type="TileMap" parent="."]
-z_index = -1
+z_index = 1
 tile_set = SubResource("TileSet_br403")
 cell_quadrant_size = 128
 format = 2
+layer_0/tile_data = PackedInt32Array(65539, 0, 0, 65540, 0, 0, 65541, 0, 0, 5, 0, 0, -65531, 0, 0, -131067, 0, 0, -131068, 0, 0, -131069, 0, 0, -65533, 0, 0, 3, 0, 0, 4, 0, 0, -65532, 0, 0)
 
 [node name="TileMap2" type="TileMap" parent="."]
-z_index = -1
+visible = false
+z_index = 1
 tile_set = SubResource("TileSet_uxx4v")
 cell_quadrant_size = 128
 format = 2
+layer_0/tile_data = PackedInt32Array(-65538, 0, 0, -2, 0, 0, 65534, 0, 0, 131070, 0, 0, 131071, 0, 0, 65536, 0, 0, 65537, 0, 0, 1, 0, 0, -65535, 0, 0, -131071, 0, 0, -131072, 0, 0, -65537, 0, 0, -1, 0, 0, 65535, 0, 0, 0, 0, 0, -65536, 0, 0, 131075, 0, 0, 196611, 0, 0, 262147, 0, 0, 327683, 0, 0, 393219, 0, 0, 393220, 0, 0, 393221, 0, 0, 327685, 0, 0, 327684, 0, 0, 262148, 0, 0, 131076, 0, 0, 131077, 0, 0, 196613, 0, 0, 262149, 0, 0, 196612, 0, 0, 65538, 0, 0, 2, 0, 0, -65534, 0, 0, -131070, 0, 0)
 
 [node name="Constants" type="TileMap" parent="."]
+z_index = -1
 tile_set = ExtResource("3_qs0ep")
 format = 2
+layer_0/tile_data = PackedInt32Array(196607, 2, 0, 131072, 2, 0, -131073, 2, 0, -196608, 2, 0, 196606, 2, 0, -131074, 2, 0, -131075, 2, 1, 196605, 2, 65537, 131069, 2, 65536, 65533, 2, 65536, -3, 2, 65536, -65539, 2, 65536, -196607, 2, 0, 131073, 2, 0, -196606, 2, 0, -196605, 2, 0, -196604, 2, 0, -196603, 2, 0, -196602, 2, 131073, -131066, 2, 65536, -65530, 2, 65536, 6, 2, 65536, 65542, 2, 65536, 131078, 2, 65536, 131074, 2, 131073, 196610, 2, 65536, 262146, 2, 65536, 327682, 2, 65536, 196614, 2, 65536, 262150, 2, 65536, 327686, 2, 65536, 393218, 2, 65536, 393222, 2, 65536, 458754, 2, 65537, 458755, 2, 131073, 458758, 2, 196609, 458757, 2, 1, 458756, 65542, 2, 524292, 0, 0, 524293, 2, 65536, 524291, 2, 65536, 589827, 2, 65537, 589829, 2, 196609, 589828, 2, 0)
 
 [node name="CanvasLayer" parent="." instance=ExtResource("9_dp2ak")]
+
+[node name="Label" type="Label" parent="."]
+offset_left = -379.0
+offset_top = -471.0
+offset_right = 895.0
+offset_bottom = -409.0
+text = "EVERYTIME YOU PHASE, YOU GET A BIT SMALLER"
+label_settings = SubResource("LabelSettings_sejck")
+horizontal_alignment = 1

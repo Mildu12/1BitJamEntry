@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://u221nukcgtwo" path="res://resources/Borders.png" id="2_evhnj"]
 [ext_resource type="Texture2D" uid="uid://coelc8pbv2lex" path="res://resources/DontMove.png" id="3_508ka"]
 [ext_resource type="Texture2D" uid="uid://dxclt2g75yrig" path="res://resources/White.png" id="4_erw8q"]
-[ext_resource type="Texture2D" uid="uid://ldh3b2v8xuan" path="res://resources/Doors.png" id="5_ma8pt"]
+[ext_resource type="Texture2D" uid="uid://x41ssgh85mwi" path="res://resources/Doors.png" id="5_ma8pt"]
 [ext_resource type="Texture2D" uid="uid://cqooux374148s" path="res://resources/OOB.png" id="6_2c1hk"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_3y057"]

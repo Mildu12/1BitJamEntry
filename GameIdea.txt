@@ -1,10 +1,8 @@
-Alr so lets do this
-
-You play a level over and over again, each time losing a movement mechanic
 
 LEVELS:
 	1: Phasing
 	2: Doors
 	3: Constants
 	4: Switcher
+	5: Strange door sizes + switcher
 	

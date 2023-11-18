@@ -6,19 +6,22 @@ var move = false
 var wallCheckers = []
 var phasable = []
 var phaseMode = false
-var inSwitcher = false
+var inSwitcher = 0
 var inMenu = false
 
 func _ready():
 	pass # Replace with function body.
 
 func _process(delta):
+	$CollisionShape2D.shape.size = Vector2(128 * (scale[0] + (1 - scale[0])/3 * 2.5)   ,128 * (scale[0] + (1 - scale[0])/3 * 2.5))
+	$Area2D2/CollisionShape2D.shape.size = Vector2(120 * (scale[0] + (1 - scale[0])/3 * 2.5),120 * (scale[0] + (1 - scale[0])/3 * 2.5))
 	if Input.is_action_just_pressed("menu") and inMenu == false:
 		inMenu = true
 		add_child(load("res://Scenes/OverLay.tscn").instantiate())
 	elif Input.is_action_just_pressed("menu") and inMenu == true:
-		inMenu = false
-		$Overlay.queue_free()
+		if has_node("Overlay"):
+			$Overlay.queue_free()
+			inMenu = false
 	if not inMenu:
 		if Input.is_action_just_pressed("respawn"):
 			respawn()
@@ -61,11 +64,13 @@ func _process(delta):
 						phase(3)
 		
 		if $Area2D.has_overlapping_bodies():
-			if inSwitcher == false:
-				inSwitcher = true
+			force_update_transform()
+			$Area2D.force_update_transform()
+			if len($Area2D.get_overlapping_bodies()) > inSwitcher:
+				inSwitcher += 1
 				phase(false)
-		elif inSwitcher == true:
-			inSwitcher = false
+		elif inSwitcher > 0:
+			inSwitcher = 0
 		if $Area2D2.has_overlapping_bodies():
 			add_child(load("res://Scenes/OverLayDone.tscn").instantiate())
 			inMenu = true
@@ -133,3 +138,4 @@ func respawn():
 	position = Vector2.ZERO
 	if phaseMode:
 		phase(false)
+	inMenu = false

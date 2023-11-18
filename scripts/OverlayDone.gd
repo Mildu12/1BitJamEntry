@@ -17,5 +17,6 @@ func _on_button_down():
 		get_parent().get_parent().get_parent().get_parent().get_parent().get_child(0).queue_free()
 		get_parent().get_parent().get_parent().get_parent().get_parent().currentLevel += 1
 	else:
-		Input.action_press("menu")
-		Input.action_release("menu")
+		print("dd")
+		get_parent().get_parent().get_parent().get_parent().get_parent().add_child(load("res://Levels/Level" + str(get_parent().get_parent().get_parent().get_parent().get_parent().currentLevel) + ".tscn").instantiate())
+		get_parent().get_parent().get_parent().get_parent().get_parent().get_child(0).queue_free()

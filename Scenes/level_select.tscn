@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://camwi26j0dwup"]
+[gd_scene load_steps=6 format=3 uid="uid://camwi26j0dwup"]
 
 [ext_resource type="Script" path="res://scripts/level_select.gd" id="1_84qru"]
 [ext_resource type="FontFile" uid="uid://cq40qnn7cta88" path="res://resources/Megrim-Regular.ttf" id="2_ipkum"]
@@ -10,13 +10,6 @@ font = ExtResource("2_ipkum")
 font_size = 150
 font_color = Color(0, 0, 0, 1)
 outline_size = 6
-outline_color = Color(0, 0, 0, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_eycdk"]
-font = ExtResource("2_ipkum")
-font_size = 49
-font_color = Color(0, 0, 0, 1)
-outline_size = 4
 outline_color = Color(0, 0, 0, 1)
 
 [node name="LevelSelect" type="Control"]
@@ -38,27 +31,16 @@ layout_mode = 2
 text = "LEVEL SELECT"
 label_settings = SubResource("LabelSettings_15l4v")
 
-[node name="CenterContainer3" type="CenterContainer" parent="."]
-layout_mode = 0
-offset_top = 169.0
-offset_right = 1152.0
-offset_bottom = 360.0
-
-[node name="Label" type="Label" parent="CenterContainer3"]
-layout_mode = 2
-text = "TUTORIAL LEVELS:"
-label_settings = SubResource("LabelSettings_eycdk")
-
 [node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 0
-offset_top = 288.0
+offset_top = 264.0
 offset_right = 1152.0
-offset_bottom = 418.0
+offset_bottom = 394.0
 
 [node name="GridContainer" type="GridContainer" parent="CenterContainer"]
 layout_mode = 2
 theme_override_constants/h_separation = 30
-theme_override_constants/v_separation = 30
+theme_override_constants/v_separation = 55
 columns = 5
 
 [node name="MainMenu" type="Button" parent="."]

@@ -1,0 +1,48 @@
+[gd_scene load_steps=11 format=3 uid="uid://31s4qa2gak21"]
+
+[ext_resource type="PackedScene" uid="uid://b0wf2xcit62er" path="res://main.tscn" id="1_b3lvm"]
+[ext_resource type="Script" path="res://scripts/AudioController.gd" id="2_obygo"]
+[ext_resource type="AudioStream" uid="uid://84osx2l1ymlq" path="res://resources/Song/Piano1.wav" id="3_m26xo"]
+[ext_resource type="AudioStream" uid="uid://gv878n6ygisy" path="res://resources/Song/Piano2.wav" id="4_8lb6w"]
+[ext_resource type="AudioStream" uid="uid://cx8eouc4jq1ta" path="res://resources/Song/Chords.wav" id="5_j5wgm"]
+[ext_resource type="AudioStream" uid="uid://d2xpfgxon228w" path="res://resources/Song/sub.wav" id="6_ouyb4"]
+[ext_resource type="AudioStream" uid="uid://ejhr6x861kki" path="res://resources/Song/Kick.wav" id="7_108cp"]
+[ext_resource type="AudioStream" uid="uid://d36yw0lkl1l84" path="res://resources/Song/Rim1.wav" id="8_hyphs"]
+[ext_resource type="AudioStream" uid="uid://icrxfc14gekx" path="res://resources/Song/Rim2.wav" id="9_nlyyr"]
+[ext_resource type="AudioStream" uid="uid://qds1udl1vnic" path="res://resources/Song/HiHat.wav" id="10_b2mgv"]
+
+[node name="RealMain" type="Node2D"]
+
+[node name="Main" parent="." instance=ExtResource("1_b3lvm")]
+
+[node name="AudioController" type="Node2D" parent="."]
+script = ExtResource("2_obygo")
+
+[node name="MakeshiftTimer" type="AudioStreamPlayer" parent="AudioController"]
+stream = ExtResource("3_m26xo")
+volume_db = -80.0
+bus = &"Timer"
+
+[node name="Piano1" type="AudioStreamPlayer" parent="AudioController"]
+stream = ExtResource("3_m26xo")
+
+[node name="Piano2" type="AudioStreamPlayer" parent="AudioController"]
+stream = ExtResource("4_8lb6w")
+
+[node name="PianoChords" type="AudioStreamPlayer" parent="AudioController"]
+stream = ExtResource("5_j5wgm")
+
+[node name="Sub" type="AudioStreamPlayer" parent="AudioController"]
+stream = ExtResource("6_ouyb4")
+
+[node name="Kick" type="AudioStreamPlayer" parent="AudioController"]
+stream = ExtResource("7_108cp")
+
+[node name="Rim1" type="AudioStreamPlayer" parent="AudioController"]
+stream = ExtResource("8_hyphs")
+
+[node name="Rim2" type="AudioStreamPlayer" parent="AudioController"]
+stream = ExtResource("9_nlyyr")
+
+[node name="Hihat" type="AudioStreamPlayer" parent="AudioController"]
+stream = ExtResource("10_b2mgv")

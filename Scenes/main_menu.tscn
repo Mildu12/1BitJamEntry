@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://dg04088c60nk4"]
+[gd_scene load_steps=7 format=3 uid="uid://dg04088c60nk4"]
 
 [ext_resource type="FontFile" uid="uid://cq40qnn7cta88" path="res://resources/Megrim-Regular.ttf" id="1_m7cdy"]
 [ext_resource type="Theme" uid="uid://d38ywd31fk2yh" path="res://resources/ButtonTheme.tres" id="2_g6lf6"]
 [ext_resource type="Script" path="res://scripts/LevelSelect.gd" id="3_bfsfe"]
 [ext_resource type="Script" path="res://scripts/quit.gd" id="4_5m7fa"]
+[ext_resource type="Script" path="res://scripts/MusicToggle.gd" id="5_1vvfj"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_yy6kf"]
 font = ExtResource("1_m7cdy")
@@ -45,6 +46,13 @@ theme = ExtResource("2_g6lf6")
 text = "LEVEL SELECT"
 script = ExtResource("3_bfsfe")
 
+[node name="Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("2_g6lf6")
+text = "TOGGLE MUSIC"
+script = ExtResource("5_1vvfj")
+
 [node name="Button2" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("2_g6lf6")
@@ -52,4 +60,5 @@ text = "QUIT GAME"
 script = ExtResource("4_5m7fa")
 
 [connection signal="button_down" from="VBoxContainer/LevelSelect" to="VBoxContainer/LevelSelect" method="_on_button_down"]
+[connection signal="button_down" from="VBoxContainer/Button" to="VBoxContainer/Button" method="_on_button_down"]
 [connection signal="button_down" from="VBoxContainer/Button2" to="VBoxContainer/Button2" method="_on_button_down"]
